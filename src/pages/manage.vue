@@ -1,56 +1,33 @@
 <template>
-  <el-container class="main" direction="vertical">
-    <el-header class="header">
-      <head-top>hdeo </head-top>
-    </el-header>
-    <el-container class="side-main">
-      <el-aside width="200px">
-        <el-menu
-          :default-active="defaultActive"
-          style="min-height: 100%;"
-          theme="dark"
-          router
+  <div>
+    <headTop>hdeo </headTop>
+    <el-menu
+      :default-active="defaultActive"
+      style="min-height: 100%;"
+      theme="dark"
+      router
+    >
+      <el-menu-item index="/tomato">
+        <template slot="title"><i class="el-icon-document"></i>番茄</template>
+      </el-menu-item>
+      <el-menu-item index="/todo">
+        <template slot="title"><i class="el-icon-document"></i>待办</template>
+      </el-menu-item>
+      <el-menu-item index="/statistics">
+        <template slot="title"
+          ><i class="el-icon-document"></i>统计数据</template
         >
-          <el-menu-item index="/tomato">
-            <template slot="title"
-              ><i class="el-icon-document"></i>番茄</template
-            >
-          </el-menu-item>
-          <el-menu-item index="/todo">
-            <template slot="title"
-              ><i class="el-icon-document"></i>待办</template
-            >
-          </el-menu-item>
-          <el-menu-item index="/statistics">
-            <template slot="title"
-              ><i class="el-icon-document"></i>统计数据</template
-            >
-          </el-menu-item>
-          <el-menu-item index="/setting">
-            <template slot="title"
-              ><i class="el-icon-document"></i>设置</template
-            >
-          </el-menu-item>
-        </el-menu>
-      </el-aside>
-      <el-container>
-        <el-main
-          ><keep-alive> <router-view></router-view> </keep-alive
-        ></el-main>
-      </el-container>
-    </el-container>
+      </el-menu-item>
+    </el-menu>
     <el-divider content-position="center">版权所有</el-divider>
-    <!-- <el-footer class="footer">Footer</el-footer> -->
-  </el-container>
+  </div>
 </template>
 
 <script>
 import headTop from "../components/headTop.vue";
 export default {
   data() {
-    return {
-      HeadTop
-    };
+    return {};
   },
   methods: {},
   components: {
@@ -71,8 +48,6 @@ export default {
   line-height: 20px;
   margin-bottom: 0px;
   background-color: #333;
-}
-el-divider {
 }
 
 .el-aside {
@@ -103,7 +78,7 @@ body > .el-container {
 }
 
 .main {
-  height: 100%;
+  /* height: 10; */
   padding: 0px;
   margin: 0px;
 }

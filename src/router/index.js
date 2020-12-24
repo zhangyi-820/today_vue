@@ -6,7 +6,6 @@ import manage from '@/pages/manage'
 import tomato from '@/pages/tomato'
 import todo from '@/pages/todo'
 import statistics from '@/pages/statistics'
-import setting from '@/pages/setting'
 
 
 
@@ -36,10 +35,6 @@ export default new Router({
             path: '/statistics',
             component: statistics,
             meta: ['统计数据']
-        }, {
-            path: '/setting',
-            component: setting,
-            meta: ['设置']
         }]
     }]
 })

@@ -1,72 +1,78 @@
 <template>
-  <div>
-    <div>
-      <el-col>
-        <el-row v-for="todo in todoList" :key="todo">
-          <el-card class="todo-card">
-            <div style="margin-top:0">
-              <p>{{ todo.content }}</p>
-            </div>
-          </el-card>
-        </el-row>
-      </el-col>
-    </div>
-    <div class="block">
-      <span class="demonstration">页数较少时的效果</span>
-      <el-pagination layout="prev, pager, next" :total="50"> </el-pagination>
-    </div>
-  </div>
+  <el-table :data="tableData" style="width: 100%">
+    <el-table-column prop="date" label="日期" width="180"> </el-table-column>
+    <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
+    <el-table-column prop="address" label="地址"> </el-table-column>
+  </el-table>
 </template>
+
 <script>
 export default {
   data() {
     return {
-      userId: 0,
-      token: "",
-      todoList: [
-        { userId: "1", content: "测试1" },
-        { userId: "2", content: "测试2" },
-        { userId: "3", content: "测试3" },
-        { userId: "4", content: "测试4" },
-        { userId: "5", content: "测试5" }
+      personInfoPageShow: false,
+      queryCondition: null,
+      addPersonPageShow: true,
+      tableData: [
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333
+        },
+        {
+          date: "2016-05-04",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1517 弄",
+          zip: 200333
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1519 弄",
+          zip: 200333
+        },
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1516 弄",
+          zip: 200333
+        },
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1516 弄",
+          zip: 200333
+        },
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1516 弄",
+          zip: 200333
+        }
       ]
     };
   },
-  // created(){
-  //   this.userId=this.$cookies.get("userId");
-  //   this.token=this.$cookies.get("token");
-  //   this.axios({
-  //       method: "post",
-  //       url: "/api/todos/get-todo-by-userid/"+this.userId,
-  //       data: postData,
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "authorization":this.userId+"_"+this.token
-  //       }
-  //     })
-  //       .then(response => {
-  //         if (response.data.code == 0) {
-  //           for(todo in response.data.content){
-  //             this.todoList.push(todo);
-  //           }
-  //         } else {
-  //           this.$message.error("似乎出问题了");
-  //         }
-  //       })
-  //       .catch(error => {
-  //         console.log(error);
-  //       });
-  // },
-  methods: {}
+  methods: {
+    handleEdit(index, row) {},
+    handleDelete(index, row) {},
+    handleClick(row) {
+      console.log(row);
+    }
+  }
 };
 </script>
-<style scoped>
-.todo-card {
-  height: 85px;
-  width: 100%;
-}
 
-.block {
-  height: 80px;
-}
-</style>
+<style scoped></style>

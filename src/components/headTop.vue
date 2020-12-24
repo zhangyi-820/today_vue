@@ -6,7 +6,13 @@
         item
       }}</el-breadcrumb-item>
     </el-breadcrumb>
-    <el-avatar icon="el-icon-user-solid"></el-avatar>
+    <el-dropdown @command="handleCommand" menu-align="start">
+      <img class="avator" />
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item command="home">修改密码</el-dropdown-item>
+        <el-dropdown-item command="signout">退出</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
   </div>
 </template>
 
@@ -21,7 +27,9 @@ export default {
   created() {
     console.log("tets");
   },
-  methods: {}
+  methods: {
+    handleCommand() {}
+  }
 };
 </script>
 
