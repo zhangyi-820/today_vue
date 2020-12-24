@@ -1,17 +1,45 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/components/Login/LoginModule'
+
+import login from '@/pages/login'
+import manage from '@/pages/manage'
+import tomato from '@/pages/tomato'
+import todo from '@/pages/todo'
+import statistics from '@/pages/statistics'
+import setting from '@/pages/setting'
 
 
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Login',
-      component: Login
-    }
-  ]
+    routes: [{
+        path: '/',
+        component: login
+    }, {
+        path: '/home',
+        component: manage,
+        name: '',
+        children: [{
+            path: '',
+            component: tomato,
+            meta: [],
+        }, {
+            path: '/tomato',
+            component: tomato,
+            meta: ['番茄钟']
+        }, {
+            path: '/todo',
+            component: todo,
+            meta: ['待办']
+        }, {
+            path: '/statistics',
+            component: statistics,
+            meta: ['统计数据']
+        }, {
+            path: '/setting',
+            component: setting,
+            meta: ['设置']
+        }]
+    }]
 })
