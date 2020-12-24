@@ -6,7 +6,7 @@ import manage from '@/pages/manage'
 import tomato from '@/pages/tomato'
 import todo from '@/pages/todo'
 import statistics from '@/pages/statistics'
-
+import mine from '@/pages/mine'
 
 
 Vue.use(Router)
@@ -20,21 +20,27 @@ export default new Router({
         component: manage,
         name: '',
         children: [{
-            path: '',
-            component: tomato,
-            meta: [],
-        }, {
-            path: '/tomato',
-            component: tomato,
-            meta: ['番茄钟']
-        }, {
-            path: '/todo',
-            component: todo,
-            meta: ['待办']
-        }, {
-            path: '/statistics',
-            component: statistics,
-            meta: ['统计数据']
-        }]
+                path: '',
+                component: tomato,
+                meta: [],
+            }, {
+                path: '/tomato',
+                component: tomato,
+                meta: ['番茄钟']
+            }, {
+                path: '/todo',
+                component: todo,
+                meta: ['待办']
+            }, {
+                path: '/statistics',
+                component: statistics,
+                meta: ['统计数据']
+            },
+            {
+                path: '/mine',
+                component: mine,
+                meta: ['我的']
+            }
+        ]
     }]
 })

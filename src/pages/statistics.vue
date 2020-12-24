@@ -1,10 +1,21 @@
 <template>
-  <div>
-    <el-avatar icon="el-icon-user-solid"></el-avatar>
-  </div>
+  <div class="echarts-box" :id="id"></div>
 </template>
+
 <script>
-export default {};
+import * as echarts from "echarts";
+export default {
+  props: ["options", "id"],
+  mounted: function() {
+    var myChart = echarts.init(document.getElementById(this.id));
+    myChart.setOption(this.options);
+  }
+};
 </script>
 
-<script scoped></script>
+<style scoped>
+.echarts-box {
+  width: 100%;
+  height: 100%;
+}
+</style>
